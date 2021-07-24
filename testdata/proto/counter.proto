@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package test;
+option go_package = "./;counter";
+
+service Counter {
+    rpc GetCounter(NullRequest) returns (GetCounterResponse);
+    rpc UpdateCounter(UpdateCounterReqeust) returns (GetCounterResponse);
+}
+
+message UpdateCounterReqeust {
+    int32 value = 1;
+}
+
+message NullRequest {
+}
+
+message GetCounterResponse {
+    int32 num = 1;
+}
